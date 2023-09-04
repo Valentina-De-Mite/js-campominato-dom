@@ -55,11 +55,19 @@ document.getElementById("click_me").addEventListener("click", function () {
     limit = 49;
   }
 
+  generateBombs(limit);
   console.log(limit);
   generateField(fieldElement, limit);
   let click_me = document.getElementById("click_me");
   click_me.classList.add("d-none");
 });
+
+function generateBombs(limit) {
+  for (let i = 0; i < 16; i++) {
+    let bomb = Math.floor(Math.random() * limit + 1);
+    console.log(bomb);
+  }
+}
 
 // generateField(fieldElement, limit);
 // let click_me = document.getElementById("click_me");
