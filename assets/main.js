@@ -10,6 +10,16 @@ difficoltà 2 ⇒ 81 caselle, con un numero compreso tra 1 e 81, divise in 9 cas
 difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
+let difficultyRange = "";
+
+document
+  .getElementById("difficultyRange")
+  .addEventListener("click", function () {
+    console.log(this.value);
+    difficultyRange = this.value;
+  });
+
+// Griglia basic
 document.getElementById("click_me").addEventListener("click", function () {
   function generateField(domElement, limit) {
     console.log(this);
@@ -26,9 +36,47 @@ document.getElementById("click_me").addEventListener("click", function () {
     }
   }
 
+  let limit = 0;
   const fieldElement = document.querySelector(".filed");
-  const limit = 100;
+
+  console.log(difficultyRange);
+  if (difficultyRange == "1") {
+    limit = 100;
+  } else if (difficultyRange == 2) {
+    limit = 81;
+  } else if (difficultyRange == "3") {
+    limit = 49;
+  }
+
+  console.log(limit);
   generateField(fieldElement, limit);
   let click_me = document.getElementById("click_me");
   click_me.classList.add("d-none");
 });
+
+// generateField(fieldElement, limit);
+// let click_me = document.getElementById("click_me");
+// click_me.classList.add("d-none");
+// "medium".addEventListener("click", function medium() {
+//   let limit = 81;
+//   function generateField(domElement, limit) {
+//     console.log(this);
+
+//     for (let i = 0; i < limit; i++) {
+//       const cellElement = document.createElement("div");
+//       cellElement.className = "cell";
+//       cellElement.append(i + 1);
+//       domElement.append(cellElement);
+//       cellElement.addEventListener("click", function () {
+//         this.classList.toggle("bg-blue");
+//         console.log(cellElement.innerText);
+//       });
+//     }
+//   }
+//   generateField(fieldElement, limit);
+//   let click_me = document.getElementById("click_me");
+//   click_me.classList.add("d-none");
+//   generateField(fieldElement, limit);
+//   let difficultyange = document.getElementById("difficultyRange");
+//   difficultyRange.classList.add();
+// });

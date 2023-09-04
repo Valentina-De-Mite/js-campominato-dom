@@ -22,11 +22,25 @@ body {
 }
 
 .cell {
-  width: calc(100% / 10);
   aspect-ratio: 1 / 1;
   border: 1px solid white;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cell,
+.easy {
+  width: calc(100% / 10);
+}
+
+.cell,
+.medium {
+  width: calc(100% / 9);
+}
+
+.cell,
+.hard {
+  width: calc(100% / 7);
 }
