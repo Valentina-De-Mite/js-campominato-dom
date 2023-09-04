@@ -27,6 +27,13 @@ document.getElementById("click_me").addEventListener("click", function () {
     for (let i = 0; i < limit; i++) {
       const cellElement = document.createElement("div");
       cellElement.className = "cell";
+      if (difficultyRange == 1) {
+        cellElement.classList.add("easy");
+      } else if (difficultyRange == 2) {
+        cellElement.classList.add("medium");
+      } else if (difficultyRange == 3) {
+        cellElement.classList.add("hard");
+      }
       cellElement.append(i + 1);
       domElement.append(cellElement);
       cellElement.addEventListener("click", function () {
@@ -40,11 +47,11 @@ document.getElementById("click_me").addEventListener("click", function () {
   const fieldElement = document.querySelector(".filed");
 
   console.log(difficultyRange);
-  if (difficultyRange == "1") {
+  if (difficultyRange == 1) {
     limit = 100;
   } else if (difficultyRange == 2) {
     limit = 81;
-  } else if (difficultyRange == "3") {
+  } else if (difficultyRange == 3) {
     limit = 49;
   }
 

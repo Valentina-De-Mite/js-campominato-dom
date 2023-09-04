@@ -30,17 +30,14 @@ body {
   justify-content: center;
 }
 
-.cell,
 .easy {
   width: calc(100% / 10);
 }
 
-.cell,
 .medium {
   width: calc(100% / 9);
 }
 
-.cell,
 .hard {
   width: calc(100% / 7);
 }
