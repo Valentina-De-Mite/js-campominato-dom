@@ -12,6 +12,7 @@ difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 cas
 
 let difficultyRange = "";
 let bombsArray = [];
+let stopGame = false;
 
 document
   .getElementById("difficultyRange")
@@ -36,10 +37,14 @@ document.getElementById("click_me").addEventListener("click", function () {
       cellElement.append(i + 1);
       domElement.append(cellElement);
       cellElement.addEventListener("click", function () {
-        if (bombsArray.includes(Number(cellElement.innerText)) === true) {
-          this.classList.toggle("bg-black");
-        } else {
-          this.classList.toggle("bg-blue");
+        if (stopGame == false) {
+          if (bombsArray.includes(Number(cellElement.innerText)) === true) {
+            this.classList.toggle("bg-black");
+            stopGame = true;
+            document.getElementById("message").innerHTML = "OPSS HAI PERSO!";
+          } else {
+            this.classList.toggle("bg-blue");
+          }
         }
       });
     }
