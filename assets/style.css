@@ -16,6 +16,9 @@ body {
   background-color: rgb(156, 223, 239);
 }
 
+.bg-black {
+  background-color: rgb(18, 18, 18);
+}
 .filed {
   display: flex;
   flex-wrap: wrap;

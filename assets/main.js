@@ -11,6 +11,7 @@ difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 cas
 */
 
 let difficultyRange = "";
+let bombsArray = [];
 
 document
   .getElementById("difficultyRange")
@@ -22,8 +23,6 @@ document
 // Griglia basic
 document.getElementById("click_me").addEventListener("click", function () {
   function generateField(domElement, limit) {
-    console.log(this);
-
     for (let i = 0; i < limit; i++) {
       const cellElement = document.createElement("div");
       cellElement.className = "cell";
@@ -37,8 +36,11 @@ document.getElementById("click_me").addEventListener("click", function () {
       cellElement.append(i + 1);
       domElement.append(cellElement);
       cellElement.addEventListener("click", function () {
-        this.classList.toggle("bg-blue");
-        console.log(cellElement.innerText);
+        if (bombsArray.includes(Number(cellElement.innerText)) === true) {
+          this.classList.toggle("bg-black");
+        } else {
+          this.classList.toggle("bg-blue");
+        }
       });
     }
   }
@@ -65,8 +67,9 @@ document.getElementById("click_me").addEventListener("click", function () {
 function generateBombs(limit) {
   for (let i = 0; i < 16; i++) {
     let bomb = Math.floor(Math.random() * limit + 1);
-    console.log(bomb);
+    bombsArray.push(bomb);
   }
+  console.log(bombsArray);
 }
 
 // generateField(fieldElement, limit);
